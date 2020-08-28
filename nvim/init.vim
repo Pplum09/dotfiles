@@ -13,16 +13,16 @@ au FocusGained * :checktime
 set rtp+=/usr/local/opt/fzf
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree' "file browser
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "colors for dev icons
 Plug 'tomasiser/vim-code-dark' "vscode theme
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "typescipt autocomplete
 Plug 'junegunn/fzf.vim' "fuzzy searching for files
-Plug 'jiangmiao/auto-pairs' "autocomplete brackets
 Plug 'ryanoasis/vim-devicons' "devicons for nerdtree
 
 " Formatting
 Plug 'alvan/vim-closetag' "autocomplete html close tag
 Plug 'preservim/nerdcommenter' "toggle comment select
-Plug 'mg979/vim-visual-multi' "multi-line cursor
+Plug 'terryma/vim-multiple-cursors' "multi cursors"
 " Initialize plugin system
 call plug#end()
 
@@ -38,3 +38,17 @@ set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 let g:webdevicons_enable_nerdtree = 1 "dev icons for NERDTree
 set guifont=:h
 set guifont=DroidSansMono_Nerd_Font:h11
+
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-angular',
+  \ ]
+
+" NERDTree config
+let NERDTreeIgnore = ['\.pyc$', '.git', 'node_modules']
