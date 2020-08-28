@@ -18,11 +18,12 @@ Plug 'tomasiser/vim-code-dark' "vscode theme
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "typescipt autocomplete
 Plug 'junegunn/fzf.vim' "fuzzy searching for files
 Plug 'ryanoasis/vim-devicons' "devicons for nerdtree
-
+Plug 'vim-scripts/scratch.vim'
 " Formatting
 Plug 'alvan/vim-closetag' "autocomplete html close tag
 Plug 'preservim/nerdcommenter' "toggle comment select
 Plug 'terryma/vim-multiple-cursors' "multi cursors"
+Plug 'APZelos/blamer.nvim'
 " Initialize plugin system
 call plug#end()
 
@@ -51,4 +52,10 @@ let g:coc_global_extensions = [
   \ ]
 
 " NERDTree config
-let NERDTreeIgnore = ['\.pyc$', '.git', 'node_modules']
+let NERDTreeIgnore = ['\.pyc$', '.git', 'node_modules', 'venv']
+
+" fzf ignore files defined in .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+" gitlens to see who committed the line
+let g:blamer_enabled = 1
