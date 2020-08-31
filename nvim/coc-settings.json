@@ -6,5 +6,6 @@
     "html",
     "css",
     "python2"
-  ]
+  ],
+  "html.autoClosingTags": true
 }
