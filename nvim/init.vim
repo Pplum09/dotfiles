@@ -26,6 +26,11 @@ Plug 'APZelos/blamer.nvim'
 " Syntax Highlighting
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim' "typescript
+
+" auto completion for python
+Plug 'davidhalter/jedi-vim'
+Plug 'deoplete-plugins/deoplete-jedi'
+
 " Initialize plugin system
 call plug#end()
 
@@ -37,7 +42,7 @@ filetype plugin indent on    " required
 let NERDTreeShowHidden=1 "show hidden files
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd BufWritePre * :%s/\s\+$//e
-nmap <C-f> :NERDTreeToggle<CR>
+nmap <C-u> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '.git', 'node_modules', 'venv']
 
 " NERDTree open on editor open
@@ -61,14 +66,16 @@ set guifont=DroidSansMono_Nerd_Font:h11
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-prettier',
-  \ 'coc-eslint',
-  \ 'coc-tslint',
   \ 'coc-tsserver',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-angular',
+  \ 'coc-pairs',
+  \ 'coc-python',
   \ ]
 
+" disable jedi autocomplete so that coc-python auto complete works instead
+let g:jedi#completions_enabled = 0
 
 " fzf ignore files defined in .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'

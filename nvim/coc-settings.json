@@ -2,10 +2,10 @@
   "suggest.noselect": false,
   "tsserver.npm": "/usr/local/bin/npm",
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
     "html",
     "css",
     "python2"
   ],
-  "html.autoClosingTags": true
+  "html.autoClosingTags": true,
+  "python.jediEnabled": false
 }
